@@ -16,23 +16,25 @@ public class SearchTests {
     void selenideSearchTest() {
         open("https://demoqa.com/automation-practice-form");
         Selenide.sleep(500);
-        $(byId("firstName")).setValue("Maksim");
-        $(byId("lastName")).setValue("Bessudnov");
+        $(byId("firstName")).setValue("Jason");
+        $(byId("lastName")).setValue("Born");
         $(byId("userEmail")).setValue("beslite@gmail.com");
-        //???
-        $(byClassName("custom-control-label")).click();
-        //???
+        $(byText("Male")).click();
         $(byId("userNumber")).setValue("9263069330");
-
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOptionByValue("2");
         $(".react-datepicker__year-select").selectOptionByValue("1977");
         $(".react-datepicker__day.react-datepicker__day--010").click();
+        //???
+        $(byId("subjectsInput")).setValue("QA Guru homework").click();
+        $(byText("Sports")).click();
+        File file = $("#uploadPicture").uploadFile(new File("src/test/resources/hello_world.txt"));
+        //$("#uploadPicture").click();
+        $(byId("currentAddress")).setValue("Another world").pressTab();
 
-        File file = $("#cv").uploadFile(new File("src/test/java/../resources/hello_world.txt"));
-        $("#submit").click();
-        $(byClassName("form-control")).setValue("Moscow").pressEnter();
-        //$("#search").shouldHave(text("selenide.org"));
-        Selenide.sleep(1000);
+       // $("#search").shouldHave(text("beslite@gmail.com"));
+        Selenide.sleep(3000);
+        $("#Submit").click();
+        Selenide.sleep(3000);
     }
 }
