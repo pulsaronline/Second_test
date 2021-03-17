@@ -94,7 +94,7 @@ public class SearchTests {
 
         $(".main-header").shouldHave(text("Practice Form"));
 
-        $(".modal-content").shouldHave(text(firstName),
+        $(".table-responsive").shouldHave(text(firstName),
                 text(lastName),
                 text(email),
                 text(gender),
