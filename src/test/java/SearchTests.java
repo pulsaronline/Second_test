@@ -29,7 +29,9 @@ public class SearchTests {
         String lastName = "Born";
         String gender = "Male";
         String email = "pulsar@hotmail.com";
-        String phoneNumber = "89253339898";
+        String phoneNumber = "9253339898";
+        String month = "4";
+        String year = "1977";
 
         //open target page
 
@@ -52,8 +54,8 @@ public class SearchTests {
         //type date of birth
 
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOptionByValue("4");
-        $(".react-datepicker__year-select").selectOptionByValue("1977");
+        $(".react-datepicker__month-select").selectOptionByValue(month);
+        $(".react-datepicker__year-select").selectOptionByValue(year);
         $(".react-datepicker__day.react-datepicker__day--012").click();
 
         //type subject
@@ -94,8 +96,9 @@ public class SearchTests {
 
         $(".main-header").shouldHave(text("Practice Form"));
 
-        $(".table-responsive").shouldHave(text(firstName),
-                text(lastName),
+        //check the form elements
+
+        $(".table-responsive").shouldHave(text(firstName), text(lastName),
                 text(email),
                 text(gender),
                 text(phoneNumber),
