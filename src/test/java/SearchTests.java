@@ -15,10 +15,15 @@ import static com.codeborne.selenide.Selenide.open;
 public class SearchTests {
 
     @BeforeAll
-    public static void init() {
+    public static void setup() {
         //use Chrome browser, fullscreen
+
         Configuration.browser = "chrome";
         Configuration.startMaximized = true;
+
+        //open target page
+
+        open("https://demoqa.com/automation-practice-form");
     }
 
     @Test
@@ -33,9 +38,6 @@ public class SearchTests {
         String month = "4";
         String year = "1977";
 
-        //open target page
-
-        open("https://demoqa.com/automation-practice-form");
 
         //wait ~0,5 sec
 
@@ -90,7 +92,7 @@ public class SearchTests {
         $(byId("submit")).pressEnter();
         Selenide.sleep(3000);
 
-        //CHECK FORM ELEMENTS
+        //CHECK THE FORM
 
         //check the header, should be "Practice Form"
 
