@@ -35,10 +35,6 @@ public class SearchTests {
 
         open("https://demoqa.com/automation-practice-form");
 
-        //check the header, should be wrote Practice Form
-
-        $(".main-header").shouldHave(text("Practice Form"));
-
         //wait ~0,5 sec
 
         Selenide.sleep(500);
@@ -46,12 +42,6 @@ public class SearchTests {
         //FILL OUT THE FORM
 
         //type name, surname, email, gender, phone number
-
-       /* $(byId(firstName)).setValue("Jason");
-        $(byId("lastName")).setValue("Born");
-        $(byId("userEmail")).setValue("jborn@gmail.com");
-        $(byText("Male")).click();
-        $(byId("userNumber")).setValue("1118889991");*/
 
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
@@ -67,14 +57,15 @@ public class SearchTests {
         $(".react-datepicker__day.react-datepicker__day--012").click();
 
         //type subject
-        //$(byId("subjectsInput")).setValue("Subjects");
+
         $("#subjectsContainer").click();
-        $("#subjectsInput").setValue("Maths").pressEnter();
-        $("#subjectsInput").setValue("English").pressEnter();
+        $("#subjectsInput").setValue("Computer Science").pressEnter();
+        $("#subjectsInput").setValue("Math").pressEnter();
 
         //type hobbie
 
         $(byText("Sports")).click();
+        $(byText("Music")).click();
 
         //load file hello_world.txt
 
@@ -99,6 +90,9 @@ public class SearchTests {
 
         //CHECK FORM ELEMENTS
 
+        //check the header, should be "Practice Form"
+
+        $(".main-header").shouldHave(text("Practice Form"));
 
     }
 }
