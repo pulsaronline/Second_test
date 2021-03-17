@@ -86,7 +86,7 @@ public class SearchTests {
 
         //submit the form
         $(byId("submit")).pressEnter();
-        Selenide.sleep(4000);
+        Selenide.sleep(3000);
 
         //CHECK FORM ELEMENTS
 
@@ -94,5 +94,16 @@ public class SearchTests {
 
         $(".main-header").shouldHave(text("Practice Form"));
 
+        $(".modal-content").shouldHave(text(firstName),
+                text(lastName),
+                text(email),
+                text(gender),
+                text(phoneNumber),
+                text("12 May,1977"),
+                text("Computer Science, Maths"),
+                text("Sports, Music"),
+                text("hello_world.txt"),
+                text("LA, Oak str., 13"),
+                text("NCR Noida"));
     }
 }
