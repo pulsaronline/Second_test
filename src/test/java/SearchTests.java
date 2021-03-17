@@ -79,6 +79,6 @@ public class SearchTests {
 
         //submit the form
         $(byId("submit")).pressEnter();
-        Selenide.sleep(2000);
+        Selenide.sleep(4000);
     }
 }
