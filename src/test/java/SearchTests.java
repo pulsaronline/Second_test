@@ -23,7 +23,7 @@ public class SearchTests {
 
     @Test
     void selenideSearchTest() {
-        //work with https://demoqa.com/automation-practice-form
+        //open target page
 
         open("https://demoqa.com/automation-practice-form");
 
@@ -34,6 +34,8 @@ public class SearchTests {
         //wait ~0,5 sec
 
         Selenide.sleep(500);
+
+        //FILL OUT THE FORM
 
         //type name, surname, email, gender, phone number
 
@@ -80,5 +82,9 @@ public class SearchTests {
         //submit the form
         $(byId("submit")).pressEnter();
         Selenide.sleep(4000);
+
+        //CHECK FORM ELEMENTS
+
+
     }
 }
