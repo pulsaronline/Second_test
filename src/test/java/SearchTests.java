@@ -23,11 +23,19 @@ public class SearchTests {
 
     @Test
     void selenideSearchTest() {
+        //initialize variables
+
+        String firstName = "Jason";
+        String lastName = "Born";
+        String gender = "Male";
+        String email = "pulsar@hotmail.com";
+        String phoneNumber = "89253339898";
+
         //open target page
 
         open("https://demoqa.com/automation-practice-form");
 
-        //check the header
+        //check the header, should be wrote Practice Form
 
         $(".main-header").shouldHave(text("Practice Form"));
 
@@ -39,11 +47,17 @@ public class SearchTests {
 
         //type name, surname, email, gender, phone number
 
-        $(byId("firstName")).setValue("Jason");
+       /* $(byId(firstName)).setValue("Jason");
         $(byId("lastName")).setValue("Born");
         $(byId("userEmail")).setValue("jborn@gmail.com");
         $(byText("Male")).click();
-        $(byId("userNumber")).setValue("1118889991");
+        $(byId("userNumber")).setValue("1118889991");*/
+
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(email);
+        $(byText(gender)).click();
+        $("#userNumber").setValue(phoneNumber);
 
         //type date of birth
 
