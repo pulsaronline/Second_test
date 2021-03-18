@@ -7,10 +7,11 @@ repositories {
 }
 
 dependencies {
-    testImplementation "com.codeborne:selenide:5.19.0"
-    testImplementation "io.qameta.allure:allure-selenide:2.13.8"
-    testImplementation "org.junit.jupiter:junit-jupiter-api:5.7.0"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.7.0"
+    testImplementation "com.codeborne:selenide:5.19.0" //selenide core
+    testImplementation "org.slf4j:slf4j-simple:1.7.29" //selenide commandline full report
+    testImplementation "io.qameta.allure:allure-selenide:2.13.8" //allure core
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.7.0" //Junit5 API
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.7.0" //Junit5 core
 }
 
 test {

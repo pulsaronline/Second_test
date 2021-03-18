@@ -86,7 +86,6 @@ public class SearchTests {
 
         //submit the form
         $("#submit").pressEnter();
-        Selenide.sleep(3000);
 
         //CHECK THE FORM
 
