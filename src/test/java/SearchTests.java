@@ -20,14 +20,15 @@ public class SearchTests {
 
         Configuration.browser = "chrome";
         Configuration.startMaximized = true;
-
-        //open target page
-
-        open("https://demoqa.com/automation-practice-form");
     }
 
     @Test
     void selenideSearchTest() {
+
+        //open target page
+
+        open("https://demoqa.com/automation-practice-form");
+
         //initialize variables
 
         String firstName = "Jason";
@@ -37,11 +38,6 @@ public class SearchTests {
         String phoneNumber = "9253339898";
         String month = "4";
         String year = "1977";
-
-
-        //wait ~0,5 sec
-
-        Selenide.sleep(500);
 
         //FILL OUT THE FORM
 
@@ -73,30 +69,30 @@ public class SearchTests {
 
         //load file hello_world.txt
 
-        $("#uploadPicture").uploadFile(new File("src/test/resources/hello_world.txt"));
-
+        //$("#uploadPicture").uploadFile(new File("src/test/resources/hello_world.txt"));
+        $("#uploadPicture").uploadFromClasspath("hello_world.txt");
         //type address
 
-        $(byId("currentAddress")).setValue("LA, Oak str., 13").pressTab();
+        $("#currentAddress").setValue("LA, Oak str., 13");
 
         //type state
 
-        $(byId("state")).click();
+        $("#state").click();
         $(byText("NCR")).click();
 
         //type city
-        $(byId("city")).click();
+        $("#city").click();
         $(byText("Noida")).click();
 
         //submit the form
-        $(byId("submit")).pressEnter();
+        $("#submit").pressEnter();
         Selenide.sleep(3000);
 
         //CHECK THE FORM
 
-        //check the header, should be "Practice Form"
+        //check the header, should be "Thanks for submitting the form"
 
-        $(".main-header").shouldHave(text("Practice Form"));
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
 
         //check the form elements
 
