@@ -73,7 +73,7 @@ public class SearchTests {
         $("#uploadPicture").uploadFromClasspath("hello_world.txt");
         //type address
 
-        $("#currentAddress").setValue("LA, Oak str., 13");
+        $("#currentAddress").setValue("LA, Oak str., 13").pressTab();
 
         //type state
 
