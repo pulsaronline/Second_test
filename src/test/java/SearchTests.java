@@ -16,9 +16,7 @@ public class SearchTests {
 
     @BeforeAll
     public static void setup() {
-        //use Chrome browser, fullscreen
-
-        Configuration.browser = "chrome";
+        //use fullscreen
         Configuration.startMaximized = true;
     }
 
@@ -38,7 +36,16 @@ public class SearchTests {
         String phoneNumber = "9253339898";
         String month = "4";
         String year = "1977";
-
+        String day = "10";
+        String subject1 = "Computer Science";
+        String subject2 = "Math";
+        String hobbie1 = "Sports";
+        String hobbie2 = "Music";
+        String filename = "hello_world.txt";
+        String address = "LA, Oak str., 13";
+        String state = "NCR";
+        String city = "Noida";
+        String pageHeader = "Thanks for submitting the form";
         //FILL OUT THE FORM
 
         //type name, surname, email, gender, phone number
@@ -52,58 +59,68 @@ public class SearchTests {
         //type date of birth
 
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOptionByValue(month);
-        $(".react-datepicker__year-select").selectOptionByValue(year);
-        $(".react-datepicker__day.react-datepicker__day--012").click();
+        $(".react-datepicker__month-select").selectOptionByValue(month);    //month
+        $(".react-datepicker__year-select").selectOptionByValue(year);      //year
+        $(".react-datepicker__month").$(byText(day)).click();               //day
 
         //type subject
 
         $("#subjectsContainer").click();
-        $("#subjectsInput").setValue("Computer Science").pressEnter();
-        $("#subjectsInput").setValue("Math").pressEnter();
+        $("#subjectsInput").setValue(subject1).pressEnter();
+        $("#subjectsInput").setValue(subject2).pressEnter();
 
         //type hobbie
 
-        $(byText("Sports")).click();
-        $(byText("Music")).click();
+        $(byText(hobbie1)).click();
+        $(byText(hobbie2)).click();
 
         //load file hello_world.txt
 
-        //$("#uploadPicture").uploadFile(new File("src/test/resources/hello_world.txt"));
-        $("#uploadPicture").uploadFromClasspath("hello_world.txt");
+        //$("#uploadPicture").uploadFile(new File("src/test/resources/hello_world.txt")); //long way
+        $("#uploadPicture").uploadFromClasspath(filename);                      //optimal way
+
         //type address
 
-        $("#currentAddress").setValue("LA, Oak str., 13").pressTab();
+        $("#currentAddress").setValue(address).pressTab();
 
         //type state
 
         $("#state").click();
-        $(byText("NCR")).click();
+        $(byText(state)).click();
 
         //type city
+
         $("#city").click();
-        $(byText("Noida")).click();
+        $(byText(city)).click();
 
         //submit the form
+
         $("#submit").pressEnter();
 
         //CHECK THE FORM
 
         //check the header, should be "Thanks for submitting the form"
 
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $("#example-modal-sizes-title-lg").shouldHave(text(pageHeader));
 
         //check the form elements
 
-        $(".table-responsive").shouldHave(text(firstName), text(lastName),
+        $(".table-responsive").shouldHave(
+                text(firstName),
+                text(lastName),
                 text(email),
                 text(gender),
                 text(phoneNumber),
-                text("12 May,1977"),
-                text("Computer Science, Maths"),
-                text("Sports, Music"),
-                text("hello_world.txt"),
-                text("LA, Oak str., 13"),
-                text("NCR Noida"));
+                text(day),
+                text("may"),
+                text(year),
+                text(subject1),
+                text(subject2),
+                text(hobbie1),
+                text(hobbie2),
+                text(filename),
+                text(address),
+                text(state),
+                text(city));
     }
 }
